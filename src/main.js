@@ -4,7 +4,7 @@ const mobileMenuContainer = document.getElementById("mobile-menu")
 const headerSlider = document.getElementById("header-slider")
 const sliderContainer = document.getElementById("slider")
 const root = document.getElementById("root")
-let count = 0
+let count = 2
 
 let lastSlideElement;
 
@@ -29,16 +29,17 @@ const slides = [
         bg: "rgb(171, 245, 193)"
     }
 ]
-setInterval(()=> {
+ setInterval(()=> {
     
 
     document.getElementById("slide").remove
+    
     
     if(count===2)
         count=0
     else
     count++
-    console.log(count)
+    
     renderSlider(slides)
 },5000)
 
@@ -46,11 +47,21 @@ function renderSlider(items) {
       
         let template = `
             <div id="slide" class=" w-full h-full  inline-block  absolute top-0 left-0">
-                <img class="w-1/3 absolute bottom-0 duration-1000 left-[-11.5rem]" src="./public/images/images/${items[count].img}" width="500" />
+                <img class="w-1/3 sm:w-1/5 absolute bottom-0 duration-1000 left-[-11.5rem]" src="./public/images/images/${items[count].img}" width="500" />
 
                 <span class="absolute duration-1000 top-1/2 right-[-11.5rem] max-w-80">
                 ${items[count].title}
                 </span>
+
+                <div id="dots" class="flex w-max justify-between items-center absolute bottom-6 right-8 ">
+                    <div id="dot0"  class="w-1 p-1 cursor-pointer rounded-full bg-black border-4  "></div>
+                    <div id="dot1"  class="w-1 p-1 cursor-pointer rounded-full bg-black border-4 "></div>
+                    <div id="dot2"  class="w-1 p-1 cursor-pointer rounded-full bg-black border-4 "></div>
+
+
+                
+               </div>
+
 
             </div>
         `
@@ -61,6 +72,12 @@ function renderSlider(items) {
     sliderContainer.innerHTML = template
 
     sliderContainer.style.backgroundColor=items[count].bg
+
+    document.getElementById(`dot${count}`).classList.add("border-red-400")
+    document.getElementById("dot0").addEventListener("click",dotClick)
+    document.getElementById("dot1").addEventListener("click",dotClick)
+    document.getElementById("dot2").addEventListener("click",dotClick)
+    
     
    
 
@@ -77,6 +94,15 @@ function renderSlider(items) {
     },100)
 
 }
+function dotClick(evt){
+    let getId = evt.target.id
+    count=Number(getId[3])
+    renderSlider(slides)
+    
+    
+    console.log(Number(getId[3]))
+}
+
 
 
 renderSlider(slides)

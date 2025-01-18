@@ -38,3 +38,6 @@
     transition: 1s;
     
 }
+#dots{
+    direction: ltr;
+}
