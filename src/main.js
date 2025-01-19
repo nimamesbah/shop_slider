@@ -4,7 +4,7 @@ const mobileMenuContainer = document.getElementById("mobile-menu")
 const headerSlider = document.getElementById("header-slider")
 const sliderContainer = document.getElementById("slider")
 const root = document.getElementById("root")
-let count = 2
+let count =0 
 
 let lastSlideElement;
 
@@ -77,6 +77,7 @@ function renderSlider(items) {
     document.getElementById("dot0").addEventListener("click",dotClick)
     document.getElementById("dot1").addEventListener("click",dotClick)
     document.getElementById("dot2").addEventListener("click",dotClick)
+    document.getElementById("slide").addEventListener("click",NextPrev)
     
     
    
@@ -95,12 +96,36 @@ function renderSlider(items) {
 
 }
 function dotClick(evt){
+    evt.stopPropagation()
     let getId = evt.target.id
     count=Number(getId[3])
     renderSlider(slides)
+    console.log("dots",count)
+
     
     
-    console.log(Number(getId[3]))
+    
+}
+function NextPrev(evt){
+    console.log(evt.clientX)
+    if(evt.clientX<1349/2){
+        if(count===0)
+            count=2
+            
+        else
+        count--
+       
+    }
+    else{
+         if(count===2)
+             count=0
+             
+         else
+         count++
+
+    }
+console.log("count",count)
+    renderSlider(slides)
 }
 
 
