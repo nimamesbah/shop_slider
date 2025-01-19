@@ -34,6 +34,9 @@
 #header-slider::-webkit-scrollbar {
     display: none;
 }
+#header-slider{
+    direction: ltr;
+}
 #slide{
     transition: 1s;
     

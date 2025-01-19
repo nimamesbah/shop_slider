@@ -203,10 +203,16 @@ function toggleMobileMenu() {
 headerSlider.scrollLeft = headerSlider.scrollWidth
 
 function animateHeaderSlider() {
-    if (headerSlider.scrollLeft >= (headerSlider.scrollWidth / 2) * -1)
-        headerSlider.scrollLeft = (headerSlider.scrollWidth * -1);
+    if (headerSlider.scrollLeft <= (headerSlider.scrollWidth / 2) * 1)
+        headerSlider.scrollLeft = (headerSlider.scrollWidth * 1);
     else
-        headerSlider.scrollLeft += 1
+        headerSlider.scrollLeft += -1
+}
+function animateHeaderStop(){
+    
+    
+    
+
 }
 
 setInterval(animateHeaderSlider, 20)
