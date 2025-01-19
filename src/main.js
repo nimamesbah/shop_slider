@@ -100,7 +100,7 @@ function dotClick(evt){
     let getId = evt.target.id
     count=Number(getId[3])
     renderSlider(slides)
-    console.log("dots",count)
+    
 
     
     
@@ -124,7 +124,7 @@ function NextPrev(evt){
          count++
 
     }
-console.log("count",count)
+
     renderSlider(slides)
 }
 
