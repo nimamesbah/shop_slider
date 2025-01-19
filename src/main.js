@@ -47,9 +47,9 @@ function renderSlider(items) {
       
         let template = `
             <div id="slide" class=" w-full h-full  inline-block  absolute top-0 left-0">
-                <img class="w-1/3 sm:w-1/5 absolute bottom-0 duration-1000 left-[-11.5rem]" src="./public/images/images/${items[count].img}" width="500" />
+                <img class="w-1/3 sm:w-1/5 absolute bottom-0 duration-1000 left-[-15.5rem]" src="./public/images/images/${items[count].img}" width="500" />
 
-                <span class="absolute duration-1000 top-1/2 right-[-11.5rem] max-w-80">
+                <span class="absolute duration-1000 top-1/2 right-[-15.5rem] max-w-80">
                 ${items[count].title}
                 </span>
 
@@ -86,8 +86,8 @@ function renderSlider(items) {
     
     
     setTimeout(()=> {
-        document.querySelector("#slide > img").classList.remove("left-[-11.5rem]")
-        document.querySelector("#slide > span").classList.remove("right-[-11.5rem]")
+        document.querySelector("#slide > img").classList.remove("left-[-15.5rem]")
+        document.querySelector("#slide > span").classList.remove("right-[-15.5rem]")
 
 
         document.querySelector("#slide > img").classList.add("left-[1.5rem]")

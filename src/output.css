@@ -660,6 +660,14 @@ video {
   top: 100%;
 }
 
+.left-\[-15\.5rem\] {
+  left: -15.5rem;
+}
+
+.right-\[-15\.5rem\] {
+  right: -15.5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
