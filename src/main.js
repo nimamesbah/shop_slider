@@ -226,6 +226,9 @@ function NextPrev(evt){
 
 async function renderProducts() {
     const products = await getAllProducts()
+    document.getElementById("showBtn").classList.add("hidden")
+    clearInterval(sliderInterval)
+  
 
     const template = products.map(product => {
         const isLowPrice = product.price < 100;
@@ -260,6 +263,7 @@ async function renderProducts() {
 
     root.innerHTML = container
 }
+
 
 // renderProducts()
 // function nextSlide() {
