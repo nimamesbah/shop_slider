@@ -228,7 +228,7 @@ async function renderProducts() {
     const products = await getAllProducts()
     document.getElementById("showBtn").classList.add("hidden")
     clearInterval(sliderInterval)
-  
+    history.pushState({},"","all-products")
 
     const template = products.map(product => {
         const isLowPrice = product.price < 100;
@@ -263,6 +263,15 @@ async function renderProducts() {
 
     root.innerHTML = container
 }
+function checkState(){
+    const path = location.pathname.split("/").at(-1)
+    console.log(path)
+    if(path==="all-products")
+        renderProducts()
+    else
+        renderMainProducts()
+}
+checkState()
 
 
 // renderProducts()
